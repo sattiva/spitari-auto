@@ -1,0 +1,55 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version, for example 1.0.1
+        required: true
+        type: string
+      changelog:
+        description: Release notes
+        required: true
+        default: release
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build executable
+        shell: cmd
+        run: build.bat
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}
+          name: Spitari ${{ inputs.version }}
+          body: ${{ inputs.changelog }}
+          files: x64/Release/spitari.exe
+          make_latest: true
+
+      - name: Update version metadata
+        shell: pwsh
+        env:
+          VERSION: ${{ inputs.version }}
+          CHANGELOG: ${{ inputs.changelog }}
+        run: |
+          $metadata = @{
+            version = $env:VERSION
+            changelog = $env:CHANGELOG
+            download_url = "https://github.com/sattiva/spitari-auto/releases/download/v$($env:VERSION)/spitari.exe"
+          } | ConvertTo-Json
+          Set-Content -Path version.json -Value $metadata -Encoding utf8
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add version.json
+          git diff --cached --quiet || git commit -m "Update version.json to $env:VERSION"
+          git push
