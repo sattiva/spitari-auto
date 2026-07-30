@@ -1,5 +1,5 @@
 {
-  "version": "1.2.6",
-  "changelog": "v1.2.6 release - fixed server authentication signature verification & reverse proxy routing",
-  "download_url": "https://github.com/sattiva/spitari-auto/releases/download/v1.2.6/spitari.exe"
+  "version": "1.2.7",
+  "changelog": "v1.2.7 release - full SSL & origin Nginx reverse proxy fix for authentication server",
+  "download_url": "https://github.com/sattiva/spitari-auto/releases/download/v1.2.7/spitari.exe"
 }
