@@ -1,5 +1,5 @@
 {
   "version": "1.2.6",
-  "changelog": "v1.2.6 release - server auth signature fix",
+  "changelog": "v1.2.6 release - fixed server authentication signature verification & reverse proxy routing",
   "download_url": "https://github.com/sattiva/spitari-auto/releases/download/v1.2.6/spitari.exe"
 }
