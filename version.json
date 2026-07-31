@@ -1,5 +1,5 @@
 {
-    "version":  "1.2.9",
-    "changelog":  "Release 1.2.9",
-    "download_url":  "https://github.com/sattiva/spitari-auto/releases/download/v1.2.9/spitari.exe"
+    "version":  "1.2.10",
+    "changelog":  "possible auth fix, camera aim and mouse aim fix",
+    "download_url":  "https://github.com/sattiva/spitari-auto/releases/download/v1.2.10/spitari.exe"
 }
