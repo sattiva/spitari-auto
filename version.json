@@ -1,5 +1,5 @@
 {
-    "version":  "1.2.11",
-    "changelog":  "okokook",
-    "download_url":  "https://github.com/sattiva/spitari-auto/releases/download/v1.2.11/spitari.exe"
+    "version":  "1.2.12",
+    "changelog":  "Targeting logic, Hitbox Expander toggle \u0026 Waypoint AppData updates",
+    "download_url":  "https://github.com/sattiva/spitari-auto/releases/download/v1.2.12/spitari.exe"
 }
